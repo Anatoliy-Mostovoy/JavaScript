@@ -43,18 +43,33 @@
 //TODO пратика с пакемоанми https://pokeapi.co/api/v2/pokemon/{id or name}/
 
 //* функция должна только возвращать даннеы (промис)
+// function getPokemonById(id) {
+//   return fetch(`https://pokeapi.co/api/v2/pokemon/${id}`).then((data) => {
+//     return data.json();
+//   });
+// }
+
+// getPokemonById(1).then(onFetchSuccess).catch(onFetchReject); //* обработка во внешнем коде, не в функции fetch
+
+// function onFetchSuccess(pokemon) {
+//   console.log(pokemon);
+// }
+
+// function onFetchReject(reject) {
+//   console.log(reject);
+// }
+
+//! Делаем практику с получением Пакемонов и ренедером их имен
+import { refs } from "./variables.js";
+
 function getPokemonById(id) {
   return fetch(`https://pokeapi.co/api/v2/pokemon/${id}`).then((data) => {
     return data.json();
   });
 }
 
-getPokemonById(1).then(onFetchSuccess).catch(onFetchReject); //* обработка во внешнем коде, не в функции fetch
+getPokemonById(1).then(onResolve);
 
-function onFetchSuccess(pokemon) {
-  console.log(pokemon);
-}
-
-function onFetchReject(reject) {
-  console.log(reject);
+function onResolve(pokemon) {
+  console.log(pokemon.name);
 }
