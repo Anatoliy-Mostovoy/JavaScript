@@ -68,8 +68,12 @@ function getPokemonById(id) {
   });
 }
 
-getPokemonById(1).then(onResolve);
+getPokemonById(1).then(onResolve).catch(onReject);
 
-function onResolve(pokemon) {
-  console.log(pokemon.name);
+function onResolve({ name }) {
+  refs.mainHeader.textContent = name;
+}
+
+function onReject(error) {
+  console.log(error);
 }
