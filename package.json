@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "json-server": "^0.17.0"
+  },
+  "name": "javascript",
+  "description": "rep for repeat js",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "json-server --watch db.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Anatoliy-Mostovoy/JavaScript.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Anatoliy-Mostovoy/JavaScript/issues"
+  },
+  "homepage": "https://github.com/Anatoliy-Mostovoy/JavaScript#readme"
+}
