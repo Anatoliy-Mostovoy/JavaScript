@@ -46,7 +46,7 @@ console.log(car1.getModal); //! так читается с гетера. В об
 // //TODO делаем класс героя
 
 class Hero {
-  constructor(name, xp) {
+  constructor({ name = "Hero", xp = 0 }) {
     this.name = name;
     this.xp = xp;
   }
@@ -57,18 +57,51 @@ class Hero {
   }
 }
 
-const afilus = new Hero("Afilus", 10);
+const jorjo = new Hero({ name: "Jorjo", xp: 10 });
 
-console.log(afilus);
+console.log(jorjo);
+jorjo.getXp(5);
+console.log(jorjo);
 
 class Mag extends Hero {
-  constructor(name, xp, power) {
-    super(name, xp);
-    this.power = power;
+  constructor({ clan, weapon, ...paramsHero }) {
+    super(paramsHero);
+    this.clan = clan;
+    this.weapon = weapon;
+  }
+  getAttack() {
+    console.log(`${this.name} attack ${this.weapon}`);
   }
 }
 
-const dobrus = new Mag("Dobrus", 20, 100);
+const furion = new Mag({
+  name: "Furion",
+  xp: 20,
+  clan: "Mag",
+  weapon: "lightning",
+});
 
-console.log(dobrus);
-dobrus.getXp(1000);
+console.log(furion);
+furion.getAttack();
+furion.getXp(10);
+
+console.log(furion);
+
+class Orc extends Mag {
+  constructor({ health = 0, ...params }) {
+    super(params);
+    this.health = health;
+  }
+}
+const skretcher = new Orc({
+  name: "Skretcher",
+  xp: 5,
+  weapon: "axe",
+  clan: "Orc",
+  health: 1000,
+});
+
+console.log(skretcher);
+skretcher.getAttack();
+skretcher.getXp(1);
+console.log(skretcher);
