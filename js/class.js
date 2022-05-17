@@ -41,4 +41,23 @@ console.log(car1.getModal); //! так читается с гетера. В об
 //! Так записывается значение через set
 car1.setModal = "Audi";
 
-console.log(car1.getModal);
+console.log(car1.getModal); //* ранее везде были вызовы методов, сечас интерфейс упростился
+
+//TODO делаем класс героя
+
+class Hero {
+  constructor(name, xp) {
+    this.name = name;
+    this.xp = xp;
+  }
+
+  getXp(amount) {
+    console.log(`Этот герой получает ${amount} опыта`);
+    this.xp += amount;
+  }
+}
+
+const corsar = new Hero("Afilus", 100);
+console.log(corsar);
+
+corsar.getXp(50);
