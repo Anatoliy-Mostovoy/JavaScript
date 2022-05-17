@@ -39,11 +39,11 @@ const car1 = new Car("fiat", 10);
 console.log(car1.getModal); //! так читается с гетера. В обычной функции - образаться к св-ву
 
 //! Так записывается значение через set
-car1.setModal = "Audi";
+// car1.setModal = "Audi";
 
-console.log(car1.getModal); //* ранее везде были вызовы методов, сечас интерфейс упростился
+// console.log(car1.getModal); //* ранее везде были вызовы методов, сечас интерфейс упростился
 
-//TODO делаем класс героя
+// //TODO делаем класс героя
 
 class Hero {
   constructor(name, xp) {
@@ -52,12 +52,23 @@ class Hero {
   }
 
   getXp(amount) {
-    console.log(`Этот герой получает ${amount} опыта`);
+    console.log(`${this.name} get ${amount} xp`);
     this.xp += amount;
   }
 }
 
-const corsar = new Hero("Afilus", 100);
-console.log(corsar);
+const afilus = new Hero("Afilus", 10);
 
-corsar.getXp(50);
+console.log(afilus);
+
+class Mag extends Hero {
+  constructor(name, xp, power) {
+    super(name, xp);
+    this.power = power;
+  }
+}
+
+const dobrus = new Mag("Dobrus", 20, 100);
+
+console.log(dobrus);
+dobrus.getXp(1000);
