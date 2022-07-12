@@ -106,13 +106,80 @@ const atTheOldToad = {
   addPotion(newPotion) {
     for (const potion of this.potions) {
       if (potion["name"] === newPotion["name"]) {
+        console.log("Fuck");
         return `Error! Potion ${newPotion} is already in your inventory!`;
       }
-      this.potions.push(newPotion);
-      break;
     }
+    this.potions.push(newPotion);
   },
 };
 
 atTheOldToad.addPotion({ name: "Invisibility", price: 620 });
-console.log(atTheOldToad["potions"]);
+
+// const atTheOldToad = {
+//   potions: [
+//     { name: "Speed potion", price: 460 },
+//     { name: "Dragon breath", price: 780 },
+//     { name: "Stone skin", price: 520 },
+//   ],
+//   // Change code below this line
+//   getPotions() {
+//     return this.potions;
+//   },
+//   addPotion(newPotion) {
+//     if (this.potions.includes(newPotion)) {
+//       return `Error! Potion ${newPotion} is already in your inventory!`;
+//     }
+
+//     this.potions.push(newPotion);
+//   },
+//   removePotion(potionName) {
+//     const potionIndex = this.potions.indexOf(potionName);
+
+//     if (potionIndex === -1) {
+//       return `Potion ${potionName} is not in inventory!`;
+//     }
+
+//     this.potions.splice(potionIndex, 1);
+//   },
+//   updatePotionName(oldName, newName) {
+//     const potionIndex = this.potions.indexOf(oldName);
+
+//     if (potionIndex === -1) {
+//       return `Potion ${oldName} is not in inventory!`;
+//     }
+
+//     this.potions.splice(potionIndex, 1, newName);
+//   },
+//   // Change code above this line
+// };
+//*ToDo - call
+// const orders = [
+//   { email: "solomon@topmail.ua", dish: "Burger" },
+//   { email: "artemis@coldmail.net", dish: "Pizza" },
+//   { email: "jacob@mail.com", dish: "Taco" },
+// ];
+
+// function composeMessage(position) {
+//   messages.push(
+//     `Готовим ${this.dish} для ${this.email}. Ваш заказ ${position} в очереди.`
+//   );
+// }
+
+// const messages = [];
+// for (const order of orders) {
+//   index = orders.indexOf(order) + 1;
+//   composeMessage.call(order, index);
+// }
+
+// console.log(messages);
+
+function makeSome(parameters) {
+  console.log(`Its ${parameters} with method call in ${this.name}`);
+}
+
+const obj = {
+  name: "Tolik",
+};
+
+makeSome.call(obj, "Call");
