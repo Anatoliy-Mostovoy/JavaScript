@@ -174,12 +174,91 @@ atTheOldToad.addPotion({ name: "Invisibility", price: 620 });
 
 // console.log(messages);
 
-function makeSome(parameters) {
-  console.log(`Its ${parameters} with method call in ${this.name}`);
+// function makeSome(parameters) {
+//   console.log(`Its ${parameters} with method call in ${this.name}`);
+// }
+
+// const obj = {
+//   name: "Tolik",
+// };
+
+// makeSome.call(obj, "Call");
+
+// const str = "foo.bar=42&foo.baz=hello&bar.baz=true&baz=11";
+
+// const str1 = str.split("&");
+// console.log(str1);
+
+// const str2 = str1[0].split("=");
+// console.log(!str2[2]);
+// str2[2] = {};
+
+// console.log(str2[2]);
+
+// const obj = { name: "tolik", age: 1 };
+// console.log(obj["name"]);
+// console.log(obj[0]);
+
+// const key = "aaa";
+// const f = key.split(".");
+// console.log(f);
+
+// const obj = {
+//   title: "Hallo world",
+//   country: "Ukraine",
+//   lang: "uk",
+// };
+// console.log(obj);
+// const newObj = Object.assign(obj, { lang: "uk_eng" });
+
+// console.log(obj);
+// console.log(newObj);
+
+// const a = 1;
+// const b = 0;
+
+// if (a || b) {
+//   console.log("Its OK");
+// } else {
+//   console.log("Its no OK");
+// }
+// let a;
+// a = [1, 2, 3, 4, 5, 6];
+// console.log(a[1]);
+async function getColor(number) {
+  switch (true) {
+    case number === 1:
+      return await Promise.resolve(["red"]);
+    case number === 2:
+      return await Promise.resolve(["blue"]);
+    case number === 3:
+      return await Promise.resolve(["orange"]);
+    default:
+      return await Promise.resolve(["Bad request"]);
+  }
 }
 
-const obj = {
-  name: "Tolik",
-};
+async function getCar(number) {
+  const cl = await getColor(number).then((data) => data?.[0]);
+  return cl === "red" ? "My favorite color" : "Bad car";
+}
 
-makeSome.call(obj, "Call");
+async function myCar() {
+  number = randomNumber();
+  const result = await getCar(number);
+  console.log("result===>", result);
+}
+
+function randomNumber() {
+  return Math.round(Math.random() * 10);
+}
+
+myCar();
+
+/**
+ *  /\/\/\/\
+ *  (*)  (*)
+ *  (  /\  )
+ *   ( == )
+ *    ^^^^
+ * */
